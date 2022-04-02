@@ -20,7 +20,13 @@ namespace IntruderFPSTool.UI
             this.SubItems.Clear();
             this.Text = Room.Name.RemoveTags();
             if (Room.Password != null)
-                ForeColor = Color.Red;
+                this.Text += "***";
+
+            Color color =
+                Room.AgentCount == 0 ? Color.DarkGray :
+                Room.AgentCount == Room.MaxAgents ? Color.Red : Color.DarkGreen;
+
+            this.ForeColor = color;
 
             this.SubItems.Add(Room.CurrentMap.Name);
             this.SubItems.Add(Room.Style);
@@ -30,15 +36,8 @@ namespace IntruderFPSTool.UI
 
         private void OnUpdated(int id, Room room)
         {
-            if(id == Room.Id)
-            {
+            if (id == Room.Id)
                 UpdateInfo(room);
-                if (NotifyWhenSlotIsAvaiable) MainForm.Notifier.ShowBalloonTip(5000,
-                     "Slot Avaiable !",
-                     $"Room: {room.Name}\n" +
-                     $"Players: {room.AgentCount}/{room.MaxAgents}",
-                     ToolTipIcon.Info);
-            }
         }
         private void OnRemoved(int id, Room room)
         {
