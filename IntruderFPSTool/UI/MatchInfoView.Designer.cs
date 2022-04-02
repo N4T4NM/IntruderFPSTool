@@ -193,7 +193,7 @@
             this.scoresList.FullRowSelect = true;
             this.scoresList.Location = new System.Drawing.Point(6, 16);
             this.scoresList.Name = "scoresList";
-            this.scoresList.Size = new System.Drawing.Size(188, 161);
+            this.scoresList.Size = new System.Drawing.Size(258, 161);
             this.scoresList.TabIndex = 9;
             this.scoresList.UseCompatibleStateImageBehavior = false;
             this.scoresList.View = System.Windows.Forms.View.Details;
@@ -216,7 +216,7 @@
             this.roundsInfoGroup.Controls.Add(this.scoresList);
             this.roundsInfoGroup.Location = new System.Drawing.Point(3, 334);
             this.roundsInfoGroup.Name = "roundsInfoGroup";
-            this.roundsInfoGroup.Size = new System.Drawing.Size(200, 183);
+            this.roundsInfoGroup.Size = new System.Drawing.Size(270, 183);
             this.roundsInfoGroup.TabIndex = 10;
             this.roundsInfoGroup.TabStop = false;
             this.roundsInfoGroup.Text = "Rounds Info";

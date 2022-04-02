@@ -106,16 +106,34 @@ namespace IntruderFPSTool.UI
         void SetScores()
         {
             scoresList.Items.Clear();
+
+            int guards = 0;
+            int intruders = 0;
+
             if (RoomView!.Room!.Scores != null)
             {
                 for(int i=0; i < RoomView!.Room!.Scores.Count; i++)
                 {
                     SetScore set = RoomView!.Room!.Scores[i];
+
                     ListViewItem item = new(i.ToString());
                     item.SubItems.Add(set.Guards.ToString());
                     item.SubItems.Add(set.Intruders.ToString());
 
+                    if(set.Guards == set.Intruders)
+                        item.ForeColor = Color.Black;
+                    else if(set.Guards > set.Intruders)
+                    {
+                        guards++;
+                        item.ForeColor = Color.DarkBlue;
+                    } else
+                    {
+                        intruders++;
+                        item.ForeColor = Color.DarkOrange;
+                    }
+
                     scoresList.Items.Add(item);
+                    roundsInfoGroup.Text = $"Rounds Info ( Guards => {guards} x {intruders} <= Intruders )";
                 }
             }
             else roundsInfoGroup.Text = $"Rounds Info ( Not Avaiable )";
