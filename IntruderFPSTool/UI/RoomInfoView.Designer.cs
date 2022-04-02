@@ -43,6 +43,7 @@
             this.roomOverview = new System.Windows.Forms.Label();
             this.roomCreator = new System.Windows.Forms.Label();
             this.joinLnk = new System.Windows.Forms.LinkLabel();
+            this.roomPasswordHash = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -193,10 +194,22 @@
             this.joinLnk.Text = "Join";
             this.joinLnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.joinLnk_LinkClicked);
             // 
+            // roomPasswordHash
+            // 
+            this.roomPasswordHash.AutoSize = true;
+            this.roomPasswordHash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roomPasswordHash.Location = new System.Drawing.Point(3, 271);
+            this.roomPasswordHash.Name = "roomPasswordHash";
+            this.roomPasswordHash.Size = new System.Drawing.Size(93, 15);
+            this.roomPasswordHash.TabIndex = 21;
+            this.roomPasswordHash.Text = "Password Hash: ";
+            this.roomPasswordHash.Click += new System.EventHandler(this.roomPasswordHash_Click);
+            // 
             // RoomInfoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.roomPasswordHash);
             this.Controls.Add(this.joinLnk);
             this.Controls.Add(this.roomCreator);
             this.Controls.Add(this.roomOverview);
@@ -237,5 +250,6 @@
         private Label roomOverview;
         private Label roomCreator;
         private LinkLabel joinLnk;
+        private Label roomPasswordHash;
     }
 }

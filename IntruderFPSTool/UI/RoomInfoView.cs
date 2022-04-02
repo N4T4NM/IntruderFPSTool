@@ -66,6 +66,7 @@ namespace IntruderFPSTool.UI
             roomIsOfficial.Text = $"Official: {Room!.Official}";
             roomIsRanked.Text = $"Ranked: {Room!.Ranked}";
             roomStyle.Text = $"Style: {Room!.Style}";
+            roomPasswordHash.Text = $"Password Hash: {Room!.Password}";
             roomJoinableBy.Text = $"Joinable By: {Room!.JoinableBy}";
             roomCreator.Text = $"Creator: {Room!.Creator.Name}";
 
@@ -86,5 +87,11 @@ namespace IntruderFPSTool.UI
 
         private void joinLnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => Process.Start("cmd", $"/C start \"\" \"steam://rungameid/518150//join {Room!.Id}/\"");
+
+        private void roomPasswordHash_Click(object sender, EventArgs e)
+        {
+            if(Room!.Password != null)
+                Clipboard.SetText(Room!.Password);
+        }
     }
 }
